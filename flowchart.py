@@ -1,6 +1,8 @@
 import glob
 import ROOT
 import numpy as np
+from collections import OrderedDict
+from operator import itemgetter
 
 # Tools for making plots
 from art.morisot import Morisot
@@ -80,6 +82,7 @@ def main() :
 
     # Now everything we want is in optionsDict. Begin flowchart.
     # Start: widest window
+    gotNominal = None
     print optionsDict.keys()
     for whw in sorted(optionsDict.keys(),reverse=True) :
 
@@ -87,37 +90,59 @@ def main() :
       print "Looking at window size",whw
 
       # Look at no-window-permitted. Did at least two functions converge?
-      converged = didTwoConverge(materials,permitWindow)
+      converged = didTwoConverge(materials,False)
+
+      # If not, replace this list with window-excluded list instead.
+      if len(converged) < 2 :
+        print "Only",len(converged),"functions converged!"
+        print converged
+        print "Switching to fits with permitted windows."
+        converged = didTwoConverge(materials,True)
+
+      print "Number of functions converged:", len(converged)
+      print "In order of goodness of fit,",converged
+
+      # Now go left or right from convergence boxes. Do right first because easier.
+      if len(converged) < 2 :
+        print "Need better convergence. Moving down a window size."
+        continue
+
+      # So if we are here, we went down enough windows that 2 functions converged.
+      # Time to check p-values.
+
+
+
+
+
+      # END OF WHW LOOP
+
+    # If we looked at all possible windows and gotNominal is null, we failed and go home.
+    if gotNominal is None :
+      print "We cry and go home!"
 
 
 
 def didTwoConverge(materials,doPermitWindow) :
 
   funcsWhichConverged = {}
-  orderedGoodFuncs = []
+  #orderedGoodFuncs = []
   for function in materials.keys() :
     didConverge = True
     data = materials[function][doPermitWindow]
-    print data
-    # Check 1: does background exist
-    if not data.basicBkgFrom4ParamFit :
-      didConverge = False
-    # Check 2: does chi2 p-value exist
-    if not data.chi2PVal :
-      didConverge = False
-    # Check 3: is chi2 p-value not inf
+    # Check: is chi2 p-value not inf or nan
+    # think this is all we need becasue data object doesn't exist if it barfs on picking things up
     if np.isinf(data.chi2PVal) or np.isnan(data.chi2PVal) :
       didConverge = False
 
     # Add to dictionary with chi2 p-value (which will identify best one)
     if didConverge :
-      funcsWhichConverged[data.chi2PVal] = function
+      funcsWhichConverged[function] = data.chi2PVal
 
-  # Turn dict into list in order
-  for pval in sorted(funcsWhichConverged.keys(),reverse=True) :
-    orderedGoodFuncs.append(funcsWhichConverged[pval])
+  # Turn dict into list in order.
+  # Only issue: random if all p-values zero. Would prefer to prioritise usually good funcs...
+  orderedGoodFuncs = OrderedDict(sorted(funcsWhichConverged.items(), key=itemgetter(1), reverse=True))
 
-  return orderedGoodFuncs
+  return orderedGoodFuncs.keys()
 
 
 if __name__ == "__main__":

@@ -43,8 +43,6 @@ smallestWHW = 14
 doPlots = True
 
 # Make a painter
-# Make a painter
-# Initialize painter
 myPainter = Morisot()
 myPainter.setColourPalette("Teals")
 myPainter.setLabelType(2)
@@ -137,7 +135,7 @@ def main() :
       useWindowPermission = False
       converged = didTwoConverge(materials,False)
 
-      # If not, replace this list with window-excluded list instead.
+      # This was the top green box I am convinced we don't need
 #      if len(converged) < 2 :
 #        print "Only",len(converged),"functions converged!"
 #        print converged
@@ -215,7 +213,7 @@ def main() :
             
         # If BH p-values are OK (> 0.01)
         print "Number of OK BH values:",nBHOK
-#        if nBHOK > 1 :  # Decided if only one function thinks it's a signal, it's not a signal.
+#        if nBHOK > 1 :  # Decided that if only one function thinks it's a signal, it's not a signal.
         if nBHOK > 0 :
           
           # We have some functions with OK bump hunter p-values but not enough

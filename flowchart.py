@@ -237,6 +237,10 @@ def main() :
         print "The following functions had good bumphunter and chi2 p-values outside an excluded window (decreasing goodness order):"
         print passingFuncs
         
+        # Can't have zero, we already checked that case.
+        # And nominal is definitely first.
+        gotNominal = [passingFuncs[0],whw]
+        
         # If we have two good ones, we can stop here.
         if len(passingFuncs) > 1 :
           print "We found a signal! And we have a good background estimate and an alternate."
@@ -251,7 +255,7 @@ def main() :
       print "We cry and go home!"
 
     # Otherwise, we reached a better conclusion.
-    if 
+    print "Nominal background is"
 
 
 def didTwoConverge(materials,doPermitWindow) :

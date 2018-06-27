@@ -12,6 +12,7 @@ import analysisScripts.generalfunctions
 # File patterns to match. 
 # Need to be distinct enough that each matches only the relevant flowchart items.
 matchPatterns = ["SearchPhase_dijetgamma_single_trigger_inclusive*_inputSig650"]
+plotExtensions = ["_single_trigger_inclusive_toys_inputSig650"]
 
 # Location of files
 rootFileDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/BayesianFramework/results/flowchart_outputs/"
@@ -22,10 +23,24 @@ allowedFunctions = ["threepar","fourpar","fivepar","UA2"]
 # Point of narrowest possible window
 smallestWHW = 14
 
+# Make plots of result
+doPlots = True
+
+# Make a painter
+# Make a painter
+# Initialize painter
+myPainter = Morisot()
+myPainter.setColourPalette("Teals")
+myPainter.setLabelType(2)
+myPainter.setEPS(True)
+
 def main() :
 
   # Loop over the files. That way we could do all 4 unblindings at the same time.
+  index = -1
   for pattern in matchPatterns :
+  
+    index = index +1
 
     print "Beginning flowcharting of files matching",rootFileDir+pattern+"*.root"
 
@@ -88,7 +103,6 @@ def main() :
     gotNominal = None
     gotPossibleSignal = False
     gotLimitCase = False
-    print optionsDict.keys()
     for whw in sorted(optionsDict.keys(),reverse=True) :
 
       # This is our stopping criterion
@@ -140,6 +154,7 @@ def main() :
         nomFunction = converged[0]
         alternateFunction = converged[1]
         gotNominal = [nomFunction,whw]
+        gotAlternate = [alternateFunction,whw]
         
         # Now we look at permitting-window fits to check the BumpHunter p-values.
         nomData = materials[nomFunction][True]
@@ -245,8 +260,15 @@ def main() :
         if len(passingFuncs) > 1 :
           print "We found a signal! And we have a good background estimate and an alternate."
           gotPossibleSignal = True
+          gotAlternate = [passingFuncs[1],whw]
           # Stop looping, we are done.
           break
+        
+        # If we only found 1, we might want to keep going.
+        # Making this a separate case so we can iterate later if we need to.
+        else :
+          print "Only one good function, though we have a signal-like case. Let's try one window smaller ..."
+          continue
 
       # END OF WHW LOOP
 
@@ -255,8 +277,25 @@ def main() :
       print "We cry and go home!"
 
     # Otherwise, we reached a better conclusion.
-    print "Nominal background is"
+    print "Nominal background is",gotNominal[0],"at window half-width",gotNominal[1]
+    nominalData = optionsDict[gotNominal[1]][gotNominal[0]][True]
+    print "Alternate background is",gotAlternate[0],"at window half-width",gotAlternate[1]
+    alternateData = optionsDict[gotAlternate[1]][gotAlternate[0]][True]
 
+    if gotPossibleSignal :
+      print "We think we found a signal! Our total BumpHunter p-value (analysis result) is",nominalData.bumpHunterPVal
+      if not nominalData.excludeWindow :
+        print "Uh oh major bug!!!"
+        exit(0)
+      print "We excluded a window from",nominalData.bottomWindowEdge,"to",nominalData.topWindowEdge
+      print "Outside the window, we had chi2 pvalue",nominalData.Chi2PValRemainder,"and BH pvalue",nominalData.BHPValRemainder
+    else :
+      print "We do not see evidence of a signal. Our global bump-hunter p-value is",nominalData.bumpHunterPVal
+
+    # Make plots if permitted
+    if doPlots :
+      nominalData.makeSearchPhasePlots(myPainter,nominalData.fitLow,nominalData.fitHigh,0,"flowchart_plots/","_nominal"+plotExtensions[index])
+      alternateData.makeSearchPhasePlots(myPainter,alternateData.fitLow,alternateData.fitHigh,0,"flowchart_plots/","_alternate"+plotExtensions[index])
 
 def didTwoConverge(materials,doPermitWindow) :
 

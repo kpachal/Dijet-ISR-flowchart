@@ -114,6 +114,18 @@ startParDict = {
         "parameter2" : 69.69,
         "parameter3" : -0.052
       }
+    },
+    "trijet" : {
+      "inclusive" : {
+        "parameter1" : 444111,
+        "parameter2" : 103.072,
+        "parameter3" : -0.844275,
+      },
+      "nbtag2" : {
+        "parameter1" : 444111,
+        "parameter2" : 103.072,
+        "parameter3" : -0.844275,
+      }
     }
   }
 

@@ -13,17 +13,34 @@ useBatch = True
 
 # File you want to test on
 inputDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/inputs/flowchart_tests/"
-fitfiles = ["searchphase.photon_single_inclusiveCATDOGCHECKSat.Gauss_width7.650.gev.SigEvent2600.mjj._ww12.650JUSTABOVE.root"]
-# Tell me about this file.
+#fitfiles = ["searchphase.photon_single_inclusiveCATDOGCHECKSat.Gauss_width7.650.gev.SigEvent2600.mjj._ww12.650JUSTABOVE.root"]
+fitfiles = [
+#"searchphase.photon_compound_inclusiveCATDOGCHECKSat.Gauss_width7.NOSIGNAL.gev.SigEvent0.mjj._ww9.650.root",
+#"searchphase.photon_compound_inclusiveCATDOGCHECKSat.Gauss_width7.650.gev.SigEvent4250.mjj._ww10.650JUSTABOVE.root",
+"searchphase.photon_compound_inclusiveCATDOGCHECKSat.Gauss_width7.650.gev.SigEvent2200.mjj._ww23.650JUSTBELOW.root"
+]
+#fitfiles = ["dijetgamma_HLT_g140_loose_ystar0p75_15ifbdata_inclusive.root"]
+#fitfiles = ["dijetgamma_HLT_g75_tight_3j50noL1_L1EM22VHI_ystar0p75_15ifbdata_inclusive.root"]
+#fitfiles = ["trijet_HLT_j380_ystar0p75_15ifbdata_inclusive.root"]
+#extraTags = ["_toys_inputSig650"]
+extraTags = [
+#"_toys_noSig",
+#"_toys_inputSig650"
+"_toys_verySmallSig650"
+]
+#extraTags = ["_15ifbData"]
+
+# Tell me about these files
 lumi = "full" # or 15fb
-channel = "dijetgamma_single_trigger"
+#channel = "dijetgamma_single_trigger"
+channel = "dijetgamma_compound_trigger"
+#channel = "trijet"
 ntag = "inclusive"
+inHistName = "basicData"
+#inHistName = "background_mjj_var"
 
 # Other info
-inHistName = "basicData"
 outputDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/BayesianFramework/results/flowchart_outputs/"
-extraTag = "_toys_inputSig650"
-
 #doChannels = ["dijetgamma_compound_trigger","dijetgamma_single_trigger"]# "trijet"
 doFunctions = ["threepar","fourpar","fivepar","UA2"]
 
@@ -71,7 +88,11 @@ templateConfig = os.path.realpath("../../source/Bayesian/configurations/DijetISR
 newConfigDir = os.path.realpath("./configs/")
 
 # Cycle through files I want to test on
+index = -1
 for infile in fitfiles :
+
+  index = index + 1
+  extraTag = extraTags[index]
 
   # Cycle through acceptable functions
   for function in doFunctions :

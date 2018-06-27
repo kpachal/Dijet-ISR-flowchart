@@ -11,8 +11,24 @@ import analysisScripts.generalfunctions
 
 # File patterns to match. 
 # Need to be distinct enough that each matches only the relevant flowchart items.
-matchPatterns = ["SearchPhase_dijetgamma_single_trigger_inclusive*_inputSig650"]
-plotExtensions = ["_single_trigger_inclusive_toys_inputSig650"]
+matchPatterns = [
+#"SearchPhase_dijetgamma_single_trigger_inclusive*_inputSig650",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_noSig",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_inputSig650",
+"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_verySmallSig650",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*15ifbData",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*15ifbData",
+#"SearchPhase_trijet_inclusive_*15ifbData",
+]
+plotExtensions = [
+#"_single_trigger_inclusive_toys_inputSig650",
+#"_compound_trigger_inclusive_toys_noSig",
+#"_compound_trigger_inclusive_toys_inputSig650",
+"_compound_trigger_inclusive_toys_verySmallSig650",
+#"_single_trigger_inclusive_15ifbData",
+#"_compound_trigger_inclusive_15ifbData",
+#"_trijet_inclusive_15ifbData",
+]
 
 # Location of files
 rootFileDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/BayesianFramework/results/flowchart_outputs/"
@@ -42,10 +58,13 @@ def main() :
   
     index = index +1
 
-    print "Beginning flowcharting of files matching",rootFileDir+pattern+"*.root"
+    print "\n\nBeginning flowcharting of files matching",rootFileDir+pattern+"*.root"
 
     # Collect list of relevant files. Everything will be drawn from these.
     collectFiles = glob.glob(rootFileDir+pattern+"*.root")
+    if len(collectFiles) < 1 :
+      print "No files found matching pattern",pattern,"!"
+      continue
 
     # Get their data and organise it into a dictionary
     optionsDict = {
@@ -93,6 +112,8 @@ def main() :
       # Get data
       # Add to dict
       theseData = searchFileData(file,permitWindow)
+      if theseData is None :
+        continue
       if not swiftWindow in optionsDict.keys() : optionsDict[swiftWindow] = {}
       if not function in optionsDict[swiftWindow].keys() :
         optionsDict[swiftWindow][function] = {}
@@ -193,7 +214,9 @@ def main() :
             nBHOK = nBHOK + 1
             
         # If BH p-values are OK (> 0.01)
-        if nBHOK > 1 :
+        print "Number of OK BH values:",nBHOK
+#        if nBHOK > 1 :  # Decided if only one function thinks it's a signal, it's not a signal.
+        if nBHOK > 0 :
           
           # We have some functions with OK bump hunter p-values but not enough
           # with OK chi2 p-values.
@@ -275,6 +298,7 @@ def main() :
     # If we looked at all possible windows and gotNominal is null, we failed and go home.
     if gotNominal is None :
       print "We cry and go home!"
+      return
 
     # Otherwise, we reached a better conclusion.
     print "Nominal background is",gotNominal[0],"at window half-width",gotNominal[1]

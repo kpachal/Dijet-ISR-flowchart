@@ -103,12 +103,12 @@ def main() :
       converged = didTwoConverge(materials,False)
 
       # If not, replace this list with window-excluded list instead.
-      if len(converged) < 2 :
-        print "Only",len(converged),"functions converged!"
-        print converged
-        print "Switching to fits with permitted windows."
-        useWindowPermission = True
-        converged = didTwoConverge(materials,True)
+#      if len(converged) < 2 :
+#        print "Only",len(converged),"functions converged!"
+#        print converged
+#        print "Switching to fits with permitted windows."
+#        useWindowPermission = True
+#        converged = didTwoConverge(materials,True)
 
       print "Number of functions converged:", len(converged)
       print "In order of goodness of fit,",converged
@@ -124,7 +124,8 @@ def main() :
       # 1: do we have two functions with chi2 p-value > 0.0?
       nChi2OK = 0
       for function in converged :
-        if materials[function][useWindowPermission].chi2PVal > 0.05 :
+        # below: was useWindowPermission
+        if materials[function][False].chi2PVal > 0.05 :
           nChi2OK = nChi2OK + 1
 
       # Is it a simple background?
@@ -172,7 +173,8 @@ def main() :
         # Check bumphunter p-values. Do we have any two which are > 0?
         nBHOK = 0
         for function in converged :
-          if materials[function][useWindowPermission].bumpHunterPVal > 0.01 :
+          # below: was useWindowPermission
+          if materials[function][False].bumpHunterPVal > 0.01 :
             nBHOK = nBHOK + 1
             
         # If BH p-values are OK (> 0.01)
@@ -182,17 +184,65 @@ def main() :
           # with OK chi2 p-values.
           # Looks like a bad background but not like a signal.
           # We should go down to a smaller window.
+          print "BH p-values are OK. Go to a smaller window."
           continue
         
         # If we made it here we have no more than 1 decent chi2 or bh p-value.
         # This could be signal or it could be a bad background.
         # We should look at it with a window permitted.
+        print "In the ambiguous case. Could be signal or background."
         windowPermittedData = {}
+        nBHOK_Outside = 0
+        nChi2OK_Outside = 0
+        nBothGood_Outside = 0
         for function in converged :
           smallDict = {}
-          windowPermittedData[function] = {}
-          
+          smallDict["chi2All"] = materials[function][True].chi2PVal
+          smallDict["BHAll"] = materials[function][True].bumpHunterPVal
+          smallDict["didExcludeWindow"] = materials[function][True].excludeWindow
+          if materials[function][True].excludeWindow :
+            smallDict["chi2Out"] = materials[function][True].Chi2PValRemainder
+            smallDict["BHOut"] = materials[function][True].BHPValRemainder
+          else :
+            print "Weird -- window not excluded even though BH p-value is small. Investigate!"
+            exit(0)
+          if smallDict["chi2Out"] > 0.05 : nChi2OK_Outside = nChi2OK_Outside + 1
+          if smallDict["BHOut"] > 0.01 : nBHOK_Outside = nBHOK_Outside + 1
+          if smallDict["chi2Out"] > 0.05 and smallDict["BHOut"] > 0.01 :
+            smallDict["bothOutsideGood"] = True
+            nBothGood_Outside = nBothGood_Outside + 1
+          else :
+            smallDict["bothOutsideGood"] = False
+          windowPermittedData[function] = smallDict
+        
+        print windowPermittedData
+        
+        # Check BH and chi2 p-values outside.
+        # Happy if there are two functions for which chi2out and BHout are both OK.
+        # Medium happy if there is one.
+        if nBothGood_Outside < 1 :
 
+          # Bad background case. Time to go to a smaller window.
+          "Decided it is bad background, since window exclusion doesn't help."
+          continue
+        
+        # Now we are in an acceptable case.
+        # Sort results by outside-window chi2 p-value.
+        # My python isn't good enough to do this automatically.
+        funcsByChi2Out = getFuncsByChi2Out(windowPermittedData)
+
+        # Let's see how many we got.
+        passingFuncs = [func for func in funcsByChi2Out if windowPermittedData[func]["bothOutsideGood"]]
+        
+        print "The following functions had good bumphunter and chi2 p-values outside an excluded window (decreasing goodness order):"
+        print passingFuncs
+        
+        # If we have two good ones, we can stop here.
+        if len(passingFuncs) > 1 :
+          print "We found a signal! And we have a good background estimate and an alternate."
+          gotPossibleSignal = True
+          # Stop looping, we are done.
+          break
 
       # END OF WHW LOOP
 
@@ -200,6 +250,8 @@ def main() :
     if gotNominal is None :
       print "We cry and go home!"
 
+    # Otherwise, we reached a better conclusion.
+    if 
 
 
 def didTwoConverge(materials,doPermitWindow) :
@@ -224,6 +276,14 @@ def didTwoConverge(materials,doPermitWindow) :
 
   return orderedGoodFuncs.keys()
 
+def getFuncsByChi2Out(dictOfInfo) :
+
+  smallDict = {}
+  for func in dictOfInfo.keys() :
+    smallDict[func] = dictOfInfo[func]["chi2Out"]
+  orderedSmallDict = OrderedDict(sorted(smallDict.items(),key=itemgetter(1),reverse=True))
+
+  return orderedSmallDict.keys()
 
 if __name__ == "__main__":
   main()

@@ -17,7 +17,14 @@ inputDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/inputs
 fitfiles = [
 #"searchphase.photon_compound_inclusiveCATDOGCHECKSat.Gauss_width7.NOSIGNAL.gev.SigEvent0.mjj._ww9.650.root",
 #"searchphase.photon_compound_inclusiveCATDOGCHECKSat.Gauss_width7.650.gev.SigEvent4250.mjj._ww10.650JUSTABOVE.root",
-"searchphase.photon_compound_inclusiveCATDOGCHECKSat.Gauss_width7.650.gev.SigEvent2200.mjj._ww23.650JUSTBELOW.root"
+#"searchphase.photon_compound_inclusiveCATDOGCHECKSat.Gauss_width7.650.gev.SigEvent2200.mjj._ww23.650JUSTBELOW.root",
+#"dijetgamma_ABCD_compoundtrigger_ystar0p75_15ifbdata_nbtag2.root",
+#"dijetgamma_ABCD_compoundtrigger_ystar0p75_15ifbdata_nbtag2_MODIFIED.root",
+#"dijetgamma_ABCD_singletrigger_ystar0p75_15ifbdata_nbtag2.root",
+#"dijetgamma_ABCD_singletrigger_ystar0p75_15ifbdata_nbtag2_MODIFIED.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass350.SigNum6781.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass1100.SigNum1476.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass750.SigNum2852.mjj_Gauss_sig__smooth.root"
 ]
 #fitfiles = ["dijetgamma_HLT_g140_loose_ystar0p75_15ifbdata_inclusive.root"]
 #fitfiles = ["dijetgamma_HLT_g75_tight_3j50noL1_L1EM22VHI_ystar0p75_15ifbdata_inclusive.root"]
@@ -25,19 +32,28 @@ fitfiles = [
 #extraTags = ["_toys_inputSig650"]
 extraTags = [
 #"_toys_noSig",
-#"_toys_inputSig650"
-"_toys_verySmallSig650"
+#"_toys_inputSig650",
+#"_toys_verySmallSig650",
+#"_ABCD_original",
+#"_ABCD_modified",
+#"_toys_inputSig350"
+#"_toys_inputSig1100_fitTo1400"
+#"_toys_inputSig1100_fitTo1500",
+"_toys_inputSig750"
 ]
 #extraTags = ["_15ifbData"]
 
 # Tell me about these files
-lumi = "full" # or 15fb
+lumi = "full" # or "15fb"
 #channel = "dijetgamma_single_trigger"
 channel = "dijetgamma_compound_trigger"
 #channel = "trijet"
 ntag = "inclusive"
-inHistName = "basicData"
+#inHistName = "basicData"
 #inHistName = "background_mjj_var"
+#inHistName = "mjj_Gauss_sig_350_smoothinjectedToBkg"
+#inHistName = "mjj_Gauss_sig_1100_smoothinjectedToBkg"
+inHistName = "mjj_Gauss_sig_750_smoothinjectedToBkg"
 
 # Other info
 outputDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/BayesianFramework/results/flowchart_outputs/"
@@ -122,7 +138,8 @@ for infile in fitfiles :
         break
 
     # Min window width set at top. Max window width = half the distance between lowest and highest bins.
-    maxWHW = int(math.floor(float(maxBinX-minBinX+1)/2.0))
+#    maxWHW = int(math.floor(float(maxBinX-minBinX+1)/2.0))
+    maxWHW = 23
 
     # Get start parameters I can trust
     fitSettings = functionLoopDict[function]

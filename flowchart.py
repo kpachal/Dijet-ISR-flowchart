@@ -15,19 +15,37 @@ matchPatterns = [
 #"SearchPhase_dijetgamma_single_trigger_inclusive*_inputSig650",
 #"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_noSig",
 #"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_inputSig650",
-"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_verySmallSig650",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_verySmallSig650",
 #"SearchPhase_dijetgamma_single_trigger_inclusive_*15ifbData",
 #"SearchPhase_dijetgamma_compound_trigger_inclusive_*15ifbData",
 #"SearchPhase_trijet_inclusive_*15ifbData",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*ABCD_original",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*ABCD_modified",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*ABCD_original",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*ABCD_modified",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_inputSig350",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_inputSig1100",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*_toys_inputSig1100_fitTo1400",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*_toys_inputSig1100_fitTo1500",
+"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_inputSig750"
 ]
 plotExtensions = [
 #"_single_trigger_inclusive_toys_inputSig650",
 #"_compound_trigger_inclusive_toys_noSig",
 #"_compound_trigger_inclusive_toys_inputSig650",
-"_compound_trigger_inclusive_toys_verySmallSig650",
+#"_compound_trigger_inclusive_toys_verySmallSig650",
 #"_single_trigger_inclusive_15ifbData",
 #"_compound_trigger_inclusive_15ifbData",
 #"_trijet_inclusive_15ifbData",
+#"_single_trigger_inclusive_ABCD_original",
+#"_single_trigger_inclusive_ABCD_modified",
+#"_compound_trigger_inclusive_ABCD_original",
+#"_compound_trigger_inclusive_ABCD_modified",
+#"_compound_trigger_inclusive_toys_inputSig350"
+#"_compound_trigger_inclusive_toys_inputSig1100",
+#"_compound_trigger_inclusive_toys_inputSig1100_fitTo1400",
+#"_compound_trigger_inclusive_toys_inputSig1100_fitTo1500"
+"_compound_trigger_inclusive_toys_inputSig750"
 ]
 
 # Location of files
@@ -95,6 +113,8 @@ def main() :
       # Get range of swift fit
       swiftWindow = None
       if "global" in file :
+        # FIXME: for getting rid of global
+        #continue
         swiftWindow = 1000
       elif "whw" in file :
         tokens = file.split("_")
@@ -102,6 +122,9 @@ def main() :
         if len(relevant) > 1 : print "????"
         windowSize = relevant[0].replace("whw","")
         swiftWindow = eval(windowSize)
+        # FIXME
+        #if swiftWindow > 18 :
+          #continue
       if not swiftWindow :
         print "Could not identify swift window!"
         exit(0)
@@ -109,8 +132,10 @@ def main() :
 
       # Get data
       # Add to dict
-      theseData = searchFileData(file,permitWindow)
-      if theseData is None :
+      try :
+        theseData = searchFileData(file,permitWindow)
+      except ValueError :
+        print "No data created!"
         continue
       if not swiftWindow in optionsDict.keys() : optionsDict[swiftWindow] = {}
       if not function in optionsDict[swiftWindow].keys() :
@@ -130,6 +155,7 @@ def main() :
 
       materials = optionsDict[whw]
       print "Looking at window size",whw
+      print materials
 
       # Look at no-window-permitted. Did at least two functions converge?
       useWindowPermission = False
@@ -232,6 +258,8 @@ def main() :
         nChi2OK_Outside = 0
         nBothGood_Outside = 0
         for function in converged :
+          if not True in materials[function].keys() :
+            continue
           smallDict = {}
           smallDict["chi2All"] = materials[function][True].chi2PVal
           smallDict["BHAll"] = materials[function][True].bumpHunterPVal
@@ -240,8 +268,10 @@ def main() :
             smallDict["chi2Out"] = materials[function][True].Chi2PValRemainder
             smallDict["BHOut"] = materials[function][True].BHPValRemainder
           else :
-            print "Weird -- window not excluded even though BH p-value is small. Investigate!"
-            exit(0)
+            print "BHAll is",smallDict["BHAll"]
+            print "For no-window, was",materials[function][False].bumpHunterPVal
+            print "This behaviour is weird. Skip this function."
+            continue
           if smallDict["chi2Out"] > 0.05 : nChi2OK_Outside = nChi2OK_Outside + 1
           if smallDict["BHOut"] > 0.01 : nBHOK_Outside = nBHOK_Outside + 1
           if smallDict["chi2Out"] > 0.05 and smallDict["BHOut"] > 0.01 :
@@ -259,7 +289,7 @@ def main() :
         if nBothGood_Outside < 1 :
 
           # Bad background case. Time to go to a smaller window.
-          "Decided it is bad background, since window exclusion doesn't help."
+          print "Decided it is bad background, since window exclusion doesn't help."
           continue
         
         # Now we are in an acceptable case.
@@ -296,7 +326,7 @@ def main() :
     # If we looked at all possible windows and gotNominal is null, we failed and go home.
     if gotNominal is None :
       print "We cry and go home!"
-      return
+      continue
 
     # Otherwise, we reached a better conclusion.
     print "Nominal background is",gotNominal[0],"at window half-width",gotNominal[1]
@@ -325,11 +355,16 @@ def didTwoConverge(materials,doPermitWindow) :
   #orderedGoodFuncs = []
   for function in materials.keys() :
     didConverge = True
-    data = materials[function][doPermitWindow]
-    # Check: is chi2 p-value not inf or nan
-    # think this is all we need becasue data object doesn't exist if it barfs on picking things up
-    if np.isinf(data.chi2PVal) or np.isnan(data.chi2PVal) :
+    if not doPermitWindow in materials[function].keys() :
       didConverge = False
+    
+    else :
+      data = materials[function][doPermitWindow]
+
+      # Check: is chi2 p-value not inf or nan
+      # think this is all we need becasue data object doesn't exist if it barfs on picking things up
+      if np.isinf(data.chi2PVal) or np.isnan(data.chi2PVal) :
+        didConverge = False
 
     # Add to dictionary with chi2 p-value (which will identify best one)
     if didConverge :

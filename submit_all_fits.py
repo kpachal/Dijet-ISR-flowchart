@@ -24,7 +24,43 @@ fitfiles = [
 #"dijetgamma_ABCD_singletrigger_ystar0p75_15ifbdata_nbtag2_MODIFIED.root",
 #"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass350.SigNum6781.mjj_Gauss_sig__smooth.root",
 #"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass1100.SigNum1476.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass750.SigNum2852.mjj_Gauss_sig__smooth.root"
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass750.SigNum2852.mjj_Gauss_sig__smooth.root"
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass1000.SigNum1840.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass1100.SigNum1476.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass350.SigNum6781.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass400.SigNum5915.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass450.SigNum5126.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass550.SigNum4038.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass650.SigNum3446.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass750.SigNum2852.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass850.SigNum2386.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass950.SigNum1921.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass1000.SigNum1415.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass1100.SigNum1178.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass200.SigNum11654.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass200.SigNum2913.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass200.SigNum5827.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass200.SigNum8740.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass250.SigNum10722.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass250.SigNum2680.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass250.SigNum5361.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass250.SigNum8041.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass300.SigNum2458.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass300.SigNum4917.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass300.SigNum7376.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass300.SigNum9835.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass350.SigNum2259.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass350.SigNum4509.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass350.SigNum4519.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass350.SigNum6779.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass350.SigNum9039.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass400.SigNum3976.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass450.SigNum3509.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass550.SigNum2827.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass650.SigNum2490.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass750.SigNum2095.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass850.SigNum1754.mjj_Gauss_sig__smooth.root",
+"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass950.SigNum1437.mjj_Gauss_sig__smooth.root"
 ]
 #fitfiles = ["dijetgamma_HLT_g140_loose_ystar0p75_15ifbdata_inclusive.root"]
 #fitfiles = ["dijetgamma_HLT_g75_tight_3j50noL1_L1EM22VHI_ystar0p75_15ifbdata_inclusive.root"]
@@ -39,21 +75,85 @@ extraTags = [
 #"_toys_inputSig350"
 #"_toys_inputSig1100_fitTo1400"
 #"_toys_inputSig1100_fitTo1500",
-"_toys_inputSig750"
+#"_toys_inputSig750"
+#"_toys_mass1000.SigNum1840",
+#"_toys_mass1100.SigNum1476",
+#"_toys_mass350.SigNum6781",
+#"_toys_mass400.SigNum5915",
+#"_toys_mass450.SigNum5126",
+#"_toys_mass550.SigNum4038",
+#"_toys_mass650.SigNum3446",
+#"_toys_mass750.SigNum2852",
+#"_toys_mass850.SigNum2386",
+#"_toys_mass950.SigNum1921",
+"_toys_mass1000.SigNum1415",
+"_toys_mass1100.SigNum1178",
+"_toys_mass200.SigNum11654",
+"_toys_mass200.SigNum2913",
+"_toys_mass200.SigNum5827",
+"_toys_mass200.SigNum8740",
+"_toys_mass250.SigNum10722",
+"_toys_mass250.SigNum2680",
+"_toys_mass250.SigNum5361",
+"_toys_mass250.SigNum8041",
+"_toys_mass300.SigNum2458",
+"_toys_mass300.SigNum4917",
+"_toys_mass300.SigNum7376",
+"_toys_mass300.SigNum9835",
+"_toys_mass350.SigNum2259",
+"_toys_mass350.SigNum4509",
+"_toys_mass350.SigNum4519",
+"_toys_mass350.SigNum6779",
+"_toys_mass350.SigNum9039",
+"_toys_mass400.SigNum3976",
+"_toys_mass450.SigNum3509",
+"_toys_mass550.SigNum2827",
+"_toys_mass650.SigNum2490",
+"_toys_mass750.SigNum2095",
+"_toys_mass850.SigNum1754",
+"_toys_mass950.SigNum1437",
 ]
 #extraTags = ["_15ifbData"]
 
 # Tell me about these files
 lumi = "full" # or "15fb"
-#channel = "dijetgamma_single_trigger"
-channel = "dijetgamma_compound_trigger"
+channel = "dijetgamma_single_trigger"
+#channel = "dijetgamma_compound_trigger"
 #channel = "trijet"
 ntag = "inclusive"
 #inHistName = "basicData"
 #inHistName = "background_mjj_var"
 #inHistName = "mjj_Gauss_sig_350_smoothinjectedToBkg"
 #inHistName = "mjj_Gauss_sig_1100_smoothinjectedToBkg"
-inHistName = "mjj_Gauss_sig_750_smoothinjectedToBkg"
+#inHistNames = ["mjj_Gauss_sig_750_smoothinjectedToBkg"]
+inHistNames = [
+"mjj_Gauss_sig_1000_smoothinjectedToBkg",
+"mjj_Gauss_sig_1100_smoothinjectedToBkg",
+"mjj_Gauss_sig_200_smoothinjectedToBkg",
+"mjj_Gauss_sig_200_smoothinjectedToBkg",
+"mjj_Gauss_sig_200_smoothinjectedToBkg",
+"mjj_Gauss_sig_200_smoothinjectedToBkg",
+"mjj_Gauss_sig_250_smoothinjectedToBkg",
+"mjj_Gauss_sig_250_smoothinjectedToBkg",
+"mjj_Gauss_sig_250_smoothinjectedToBkg",
+"mjj_Gauss_sig_250_smoothinjectedToBkg",
+"mjj_Gauss_sig_300_smoothinjectedToBkg",
+"mjj_Gauss_sig_300_smoothinjectedToBkg",
+"mjj_Gauss_sig_300_smoothinjectedToBkg",
+"mjj_Gauss_sig_300_smoothinjectedToBkg",
+"mjj_Gauss_sig_350_smoothinjectedToBkg",
+"mjj_Gauss_sig_350_smoothinjectedToBkg",
+"mjj_Gauss_sig_350_smoothinjectedToBkg",
+"mjj_Gauss_sig_350_smoothinjectedToBkg",
+"mjj_Gauss_sig_350_smoothinjectedToBkg",
+"mjj_Gauss_sig_400_smoothinjectedToBkg",
+"mjj_Gauss_sig_450_smoothinjectedToBkg",
+"mjj_Gauss_sig_550_smoothinjectedToBkg",
+"mjj_Gauss_sig_650_smoothinjectedToBkg",
+"mjj_Gauss_sig_750_smoothinjectedToBkg",
+"mjj_Gauss_sig_850_smoothinjectedToBkg",
+"mjj_Gauss_sig_950_smoothinjectedToBkg",
+]
 
 # Other info
 outputDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/BayesianFramework/results/flowchart_outputs/"
@@ -68,7 +168,7 @@ minXDict = {"dijetgamma_single_trigger" : 168,
             "trijet" : 300
            }
 
-maxXForFit = 1200
+maxXForFit = 1201
 
 minWHW = 9
 
@@ -109,13 +209,14 @@ for infile in fitfiles :
 
   index = index + 1
   extraTag = extraTags[index]
+  inHistName = inHistNames[index]
 
   # Cycle through acceptable functions
   for function in doFunctions :
 
     inputFile = inputDir+infile
 
-    print "Fitting to",inputFile
+    print "Fitting to",inputFile,"hist",inHistName
     openFile = ROOT.TFile.Open(inputFile,"READ")
     inHist = openFile.Get(inHistName)
     inHist.SetDirectory(0)

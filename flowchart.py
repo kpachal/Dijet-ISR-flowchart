@@ -27,7 +27,44 @@ matchPatterns = [
 #"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_inputSig1100",
 #"SearchPhase_dijetgamma_compound_trigger_inclusive_*_toys_inputSig1100_fitTo1400",
 #"SearchPhase_dijetgamma_compound_trigger_inclusive_*_toys_inputSig1100_fitTo1500",
-"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_inputSig750"
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_inputSig750"
+
+"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass1000.SigNum1840",
+"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass1100.SigNum1476",
+"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass350.SigNum6781",
+"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass400.SigNum5915",
+"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass450.SigNum5126",
+"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass550.SigNum4038",
+"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass650.SigNum3446",
+"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass750.SigNum2852",
+"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass850.SigNum2386",
+"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass950.SigNum1921",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass1000.SigNum1415",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass1100.SigNum1178",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass200.SigNum11654",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass200.SigNum2913",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass200.SigNum5827",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass200.SigNum8740",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass250.SigNum10722",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass250.SigNum2680",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass250.SigNum5361",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass250.SigNum8041",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass300.SigNum2458",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass300.SigNum4917",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass300.SigNum7376",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass300.SigNum9835",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass350.SigNum2259",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass350.SigNum4509",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass350.SigNum4519",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass350.SigNum6779",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass350.SigNum9039",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass400.SigNum3976",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass450.SigNum3509",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass550.SigNum2827",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass650.SigNum2490",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass750.SigNum2095",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass850.SigNum1754",
+#"SearchPhase_dijetgamma_single_trigger_inclusive_*mass950.SigNum1437"
 ]
 plotExtensions = [
 #"_single_trigger_inclusive_toys_inputSig650",
@@ -45,7 +82,44 @@ plotExtensions = [
 #"_compound_trigger_inclusive_toys_inputSig1100",
 #"_compound_trigger_inclusive_toys_inputSig1100_fitTo1400",
 #"_compound_trigger_inclusive_toys_inputSig1100_fitTo1500"
-"_compound_trigger_inclusive_toys_inputSig750"
+#"_compound_trigger_inclusive_toys_inputSig750"
+
+"_compound_trigger_inclusive_mass1000.SigNum1840",
+"_compound_trigger_inclusive_mass1100.SigNum1476",
+"_compound_trigger_inclusive_mass350.SigNum6781",
+"_compound_trigger_inclusive_mass400.SigNum5915",
+"_compound_trigger_inclusive_mass450.SigNum5126",
+"_compound_trigger_inclusive_mass550.SigNum4038",
+"_compound_trigger_inclusive_mass650.SigNum3446",
+"_compound_trigger_inclusive_mass750.SigNum2852",
+"_compound_trigger_inclusive_mass850.SigNum2386",
+"_compound_trigger_inclusive_mass950.SigNum1921",
+#"_single_trigger_inclusive_mass1000.SigNum1415",
+#"_single_trigger_inclusive_mass1100.SigNum1178",
+#"_single_trigger_inclusive_mass200.SigNum11654",
+#"_single_trigger_inclusive_mass200.SigNum2913",
+#"_single_trigger_inclusive_mass200.SigNum5827",
+#"_single_trigger_inclusive_mass200.SigNum8740",
+#"_single_trigger_inclusive_mass250.SigNum10722",
+#"_single_trigger_inclusive_mass250.SigNum2680",
+#"_single_trigger_inclusive_mass250.SigNum5361",
+#"_single_trigger_inclusive_mass250.SigNum8041",
+#"_single_trigger_inclusive_mass300.SigNum2458",
+#"_single_trigger_inclusive_mass300.SigNum4917",
+#"_single_trigger_inclusive_mass300.SigNum7376",
+#"_single_trigger_inclusive_mass300.SigNum9835",
+#"_single_trigger_inclusive_mass350.SigNum2259",
+#"_single_trigger_inclusive_mass350.SigNum4509",
+#"_single_trigger_inclusive_mass350.SigNum4519",
+#"_single_trigger_inclusive_mass350.SigNum6779",
+#"_single_trigger_inclusive_mass350.SigNum9039",
+#"_single_trigger_inclusive_mass400.SigNum3976",
+#"_single_trigger_inclusive_mass450.SigNum3509",
+#"_single_trigger_inclusive_mass550.SigNum2827",
+#"_single_trigger_inclusive_mass650.SigNum2490",
+#"_single_trigger_inclusive_mass750.SigNum2095",
+#"_single_trigger_inclusive_mass850.SigNum1754",
+#"_single_trigger_inclusive_mass950.SigNum1437"
 ]
 
 # Location of files
@@ -114,7 +188,7 @@ def main() :
       swiftWindow = None
       if "global" in file :
         # FIXME: for getting rid of global
-        #continue
+        continue
         swiftWindow = 1000
       elif "whw" in file :
         tokens = file.split("_")
@@ -123,7 +197,7 @@ def main() :
         windowSize = relevant[0].replace("whw","")
         swiftWindow = eval(windowSize)
         # FIXME
-        #if swiftWindow > 18 :
+        #if swiftWindow > 22 :
           #continue
       if not swiftWindow :
         print "Could not identify swift window!"
@@ -216,7 +290,8 @@ def main() :
         elif nomData.bumpHunterPVal < 0.01 or alternateData.bumpHunterPVal < 0.01 :
           print "One of our BH p-values is less than 0.01 and the other is not. "
           print "Is this signal?"
-          break
+          # Go down a window and take another look
+          continue
         
         # Otherwise, looks like limit setting case.
         else :
@@ -272,13 +347,24 @@ def main() :
             print "For no-window, was",materials[function][False].bumpHunterPVal
             print "This behaviour is weird. Skip this function."
             continue
+          
+          # Compare window locations. For a real signal, should have some overlap between the
+          # window it decided to include and where it thinks the bumpiest bit is later.
+          print "Bottom and top edges of window excluded are",materials[function][True].bottomWindowEdge,materials[function][True].topWindowEdge
+          print "Bottom and top edge of biggest bump are",materials[function][True].bumpLowEdge,materials[function][True].bumpHighEdge
+          isBumpSane = doTheyOverlap([materials[function][True].bottomWindowEdge,materials[function][True].topWindowEdge],
+                                     [materials[function][True].bumpLowEdge,materials[function][True].bumpHighEdge])
+          smallDict["isBumpSane"] = isBumpSane
+          print "Concluded that these overlap?",isBumpSane
+          
           if smallDict["chi2Out"] > 0.05 : nChi2OK_Outside = nChi2OK_Outside + 1
           if smallDict["BHOut"] > 0.01 : nBHOK_Outside = nBHOK_Outside + 1
-          if smallDict["chi2Out"] > 0.05 and smallDict["BHOut"] > 0.01 :
+          if smallDict["chi2Out"] > 0.05 and smallDict["BHOut"] > 0.01 and isBumpSane :
             smallDict["bothOutsideGood"] = True
             nBothGood_Outside = nBothGood_Outside + 1
           else :
             smallDict["bothOutsideGood"] = False
+
           windowPermittedData[function] = smallDict
         
         print windowPermittedData
@@ -365,6 +451,11 @@ def didTwoConverge(materials,doPermitWindow) :
       # think this is all we need becasue data object doesn't exist if it barfs on picking things up
       if np.isinf(data.chi2PVal) or np.isnan(data.chi2PVal) :
         didConverge = False
+      
+      # Check: do we have any 20s in the residual? This shouldn't happen in real life.
+      for bin in range(1,data.residualHist.GetNbinsX()+1) :
+        if data.residualHist.GetBinContent(bin) > 19.5 :
+          didConverge = False
 
     # Add to dictionary with chi2 p-value (which will identify best one)
     if didConverge :
@@ -384,6 +475,14 @@ def getFuncsByChi2Out(dictOfInfo) :
   orderedSmallDict = OrderedDict(sorted(smallDict.items(),key=itemgetter(1),reverse=True))
 
   return orderedSmallDict.keys()
+
+def doTheyOverlap(range1,range2) :
+  overlap = False
+  range1 = sorted(range1)
+  range2 = sorted(range2)
+  if range1[1] > range2[0] and range1[0] < range2[1] :
+    overlap = True
+  return overlap
 
 if __name__ == "__main__":
   main()

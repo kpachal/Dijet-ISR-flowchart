@@ -12,6 +12,13 @@ import analysisScripts.generalfunctions
 # File patterns to match. 
 # Need to be distinct enough that each matches only the relevant flowchart items.
 matchPatterns = [
+"SearchPhase_dijetgamma_single_trigger_inclusive_*unblinding",
+"SearchPhase_dijetgamma_single_trigger_nbtag2_*unblinding",
+"SearchPhase_dijetgamma_compound_trigger_inclusive_*unblinding",
+"SearchPhase_dijetgamma_compound_trigger_nbtag2_*unblinding"
+]
+
+#matchPatterns = [
 #"SearchPhase_dijetgamma_single_trigger_inclusive*_inputSig650",
 #"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_noSig",
 #"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_inputSig650",
@@ -28,17 +35,22 @@ matchPatterns = [
 #"SearchPhase_dijetgamma_compound_trigger_inclusive_*_toys_inputSig1100_fitTo1400",
 #"SearchPhase_dijetgamma_compound_trigger_inclusive_*_toys_inputSig1100_fitTo1500",
 #"SearchPhase_dijetgamma_compound_trigger_inclusive_*toys_inputSig750"
-
-"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass1000.SigNum1840",
-"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass1100.SigNum1476",
-"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass350.SigNum6781",
-"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass400.SigNum5915",
-"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass450.SigNum5126",
-"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass550.SigNum4038",
-"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass650.SigNum3446",
-"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass750.SigNum2852",
-"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass850.SigNum2386",
-"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass950.SigNum1921",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass1000.SigNum1840",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass1100.SigNum1476",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass350.SigNum6781",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass400.SigNum5915",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass400.SigNum7393",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass400.SigNum8872",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass450.SigNum5126",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass450.SigNum6408",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass450.SigNum7690",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass550.SigNum4038",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass650.SigNum3446",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass650.SigNum4307",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass650.SigNum5169",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass750.SigNum2852",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass850.SigNum2386",
+#"SearchPhase_dijetgamma_compound_trigger_inclusive_*mass950.SigNum1921",
 #"SearchPhase_dijetgamma_single_trigger_inclusive_*mass1000.SigNum1415",
 #"SearchPhase_dijetgamma_single_trigger_inclusive_*mass1100.SigNum1178",
 #"SearchPhase_dijetgamma_single_trigger_inclusive_*mass200.SigNum11654",
@@ -65,8 +77,16 @@ matchPatterns = [
 #"SearchPhase_dijetgamma_single_trigger_inclusive_*mass750.SigNum2095",
 #"SearchPhase_dijetgamma_single_trigger_inclusive_*mass850.SigNum1754",
 #"SearchPhase_dijetgamma_single_trigger_inclusive_*mass950.SigNum1437"
-]
+#]
+
 plotExtensions = [
+"_single_trigger_inclusive_unblinding",
+"_single_trigger_nbtag2_unblinding",
+"_compound_trigger_inclusive_unblinding",
+"_compound_trigger_nbtag2_unblinding"
+]
+
+#plotExtensions = [
 #"_single_trigger_inclusive_toys_inputSig650",
 #"_compound_trigger_inclusive_toys_noSig",
 #"_compound_trigger_inclusive_toys_inputSig650",
@@ -83,17 +103,22 @@ plotExtensions = [
 #"_compound_trigger_inclusive_toys_inputSig1100_fitTo1400",
 #"_compound_trigger_inclusive_toys_inputSig1100_fitTo1500"
 #"_compound_trigger_inclusive_toys_inputSig750"
-
-"_compound_trigger_inclusive_mass1000.SigNum1840",
-"_compound_trigger_inclusive_mass1100.SigNum1476",
-"_compound_trigger_inclusive_mass350.SigNum6781",
-"_compound_trigger_inclusive_mass400.SigNum5915",
-"_compound_trigger_inclusive_mass450.SigNum5126",
-"_compound_trigger_inclusive_mass550.SigNum4038",
-"_compound_trigger_inclusive_mass650.SigNum3446",
-"_compound_trigger_inclusive_mass750.SigNum2852",
-"_compound_trigger_inclusive_mass850.SigNum2386",
-"_compound_trigger_inclusive_mass950.SigNum1921",
+#"_compound_trigger_inclusive_mass1000.SigNum1840",
+#"_compound_trigger_inclusive_mass1100.SigNum1476",
+#"_compound_trigger_inclusive_mass350.SigNum6781",
+#"_compound_trigger_inclusive_mass400.SigNum5915",
+#"_compound_trigger_inclusive_mass400.SigNum7393",
+#"_compound_trigger_inclusive_mass400.SigNum8872",
+#"_compound_trigger_inclusive_mass450.SigNum5126",
+#"_compound_trigger_inclusive_mass450.SigNum6408",
+#"_compound_trigger_inclusive_mass450.SigNum7690",
+#"_compound_trigger_inclusive_mass550.SigNum4038",
+#"_compound_trigger_inclusive_mass650.SigNum3446",
+#"_compound_trigger_inclusive_mass650.SigNum4307",
+#"_compound_trigger_inclusive_mass650.SigNum5169",
+#"_compound_trigger_inclusive_mass750.SigNum2852",
+#"_compound_trigger_inclusive_mass850.SigNum2386",
+#"_compound_trigger_inclusive_mass950.SigNum1921",
 #"_single_trigger_inclusive_mass1000.SigNum1415",
 #"_single_trigger_inclusive_mass1100.SigNum1178",
 #"_single_trigger_inclusive_mass200.SigNum11654",
@@ -120,10 +145,14 @@ plotExtensions = [
 #"_single_trigger_inclusive_mass750.SigNum2095",
 #"_single_trigger_inclusive_mass850.SigNum1754",
 #"_single_trigger_inclusive_mass950.SigNum1437"
-]
+#]
 
 # Location of files
-rootFileDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/BayesianFramework/results/flowchart_outputs/"
+#rootFileDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/BayesianFramework/results/flowchart_outputs/"
+rootFileDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/BayesianFramework/results/search_unblinded_data"
+
+#plotDir = "flowchart_plots/"
+plotDir = "unblinded_data_plots/"
 
 # Possible functions
 allowedFunctions = ["threepar","fourpar","fivepar","UA2"]
@@ -216,12 +245,21 @@ def main() :
         optionsDict[swiftWindow][function] = {}
       optionsDict[swiftWindow][function][permitWindow] = theseData
 
+    # Put these here instead of inside the loop
+    # if you want to allow cross-window-width solutions
+    #gotNominal = None
+    #gotAlternate = None
+    #gotPossibleSignal = False
+    #gotLimitCase = False
+
     # Now everything we want is in optionsDict. Begin flowchart.
     # Start: widest window
-    gotNominal = None
-    gotPossibleSignal = False
-    gotLimitCase = False
     for whw in sorted(optionsDict.keys(),reverse=True) :
+    
+      gotNominal = None
+      gotAlternate = None
+      gotPossibleSignal = False
+      gotLimitCase = False
 
       # This is our stopping criterion
       if whw < smallestWHW :
@@ -288,6 +326,7 @@ def main() :
         
         # If only one is, looks weird. Investigate.
         elif nomData.bumpHunterPVal < 0.01 or alternateData.bumpHunterPVal < 0.01 :
+          print "Found nominal p-value",nomData.bumpHunterPVal,"and alternate p-value",alternateData.bumpHunterPVal
           print "One of our BH p-values is less than 0.01 and the other is not. "
           print "Is this signal?"
           # Go down a window and take another look
@@ -432,8 +471,8 @@ def main() :
 
     # Make plots if permitted
     if doPlots :
-      nominalData.makeSearchPhasePlots(myPainter,nominalData.fitLow,nominalData.fitHigh,0,"flowchart_plots/","_nominal"+plotExtensions[index])
-      alternateData.makeSearchPhasePlots(myPainter,alternateData.fitLow,alternateData.fitHigh,0,"flowchart_plots/","_alternate"+plotExtensions[index])
+      nominalData.makeSearchPhasePlots(myPainter,nominalData.fitLow,nominalData.fitHigh,0,plotDir,"_nominal"+plotExtensions[index])
+      alternateData.makeSearchPhasePlots(myPainter,alternateData.fitLow,alternateData.fitHigh,0,plotDir,"_alternate"+plotExtensions[index])
 
 def didTwoConverge(materials,doPermitWindow) :
 
@@ -463,6 +502,7 @@ def didTwoConverge(materials,doPermitWindow) :
 
   # Turn dict into list in order.
   # Only issue: random if all p-values zero. Would prefer to prioritise usually good funcs...
+  print funcsWhichConverged
   orderedGoodFuncs = OrderedDict(sorted(funcsWhichConverged.items(), key=itemgetter(1), reverse=True))
 
   return orderedGoodFuncs.keys()

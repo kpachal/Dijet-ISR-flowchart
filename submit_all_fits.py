@@ -12,9 +12,16 @@ doGlobalFits = True
 useBatch = True
 
 # File you want to test on
-inputDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/inputs/flowchart_tests/"
-#fitfiles = ["searchphase.photon_single_inclusiveCATDOGCHECKSat.Gauss_width7.650.gev.SigEvent2600.mjj._ww12.650JUSTABOVE.root"]
+#inputDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/inputs/flowchart_tests/"
+inputDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/inputs/unblinded_data/"
 fitfiles = [
+#"dijetgamma_single_trigger_ystar0p75_unblinding_inclusive.root",
+#"dijetgamma_single_trigger_ystar0p75_unblinding_nbtag2.root",
+#"dijetgamma_compound_trigger_ystar0p75_unblinding_inclusive.root",
+"dijetgamma_compound_trigger_ystar0p75_unblinding_nbtag2.root"
+]
+#fitfiles = ["searchphase.photon_single_inclusiveCATDOGCHECKSat.Gauss_width7.650.gev.SigEvent2600.mjj._ww12.650JUSTABOVE.root"]
+#fitfiles = [
 #"searchphase.photon_compound_inclusiveCATDOGCHECKSat.Gauss_width7.NOSIGNAL.gev.SigEvent0.mjj._ww9.650.root",
 #"searchphase.photon_compound_inclusiveCATDOGCHECKSat.Gauss_width7.650.gev.SigEvent4250.mjj._ww10.650JUSTABOVE.root",
 #"searchphase.photon_compound_inclusiveCATDOGCHECKSat.Gauss_width7.650.gev.SigEvent2200.mjj._ww23.650JUSTBELOW.root",
@@ -35,38 +42,49 @@ fitfiles = [
 #"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass750.SigNum2852.mjj_Gauss_sig__smooth.root",
 #"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass850.SigNum2386.mjj_Gauss_sig__smooth.root",
 #"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass950.SigNum1921.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass1000.SigNum1415.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass1100.SigNum1178.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass200.SigNum11654.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass200.SigNum2913.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass200.SigNum5827.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass200.SigNum8740.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass250.SigNum10722.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass250.SigNum2680.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass250.SigNum5361.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass250.SigNum8041.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass300.SigNum2458.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass300.SigNum4917.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass300.SigNum7376.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass300.SigNum9835.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass350.SigNum2259.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass350.SigNum4509.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass350.SigNum4519.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass350.SigNum6779.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass350.SigNum9039.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass400.SigNum3976.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass450.SigNum3509.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass550.SigNum2827.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass650.SigNum2490.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass750.SigNum2095.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass850.SigNum1754.mjj_Gauss_sig__smooth.root",
-"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass950.SigNum1437.mjj_Gauss_sig__smooth.root"
-]
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass400.SigNum7393.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass400.SigNum8872.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass450.SigNum6408.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass450.SigNum7690.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass600.SigNum4611.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass600.SigNum5533.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass650.SigNum4307.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_compound_inclusive_unblind.Gauss_width10.mass650.SigNum5169.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass1000.SigNum1415.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass1100.SigNum1178.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass200.SigNum11654.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass200.SigNum2913.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass200.SigNum5827.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass200.SigNum8740.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass250.SigNum10722.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass250.SigNum2680.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass250.SigNum5361.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass250.SigNum8041.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass300.SigNum2458.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass300.SigNum4917.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass300.SigNum7376.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass300.SigNum9835.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass350.SigNum2259.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass350.SigNum4509.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass350.SigNum4519.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass350.SigNum6779.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass350.SigNum9039.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass400.SigNum3976.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass450.SigNum3509.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass550.SigNum2827.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass650.SigNum2490.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass750.SigNum2095.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass850.SigNum1754.mjj_Gauss_sig__smooth.root",
+#"signalplusbackground.photon_single_inclusive_unblind.Gauss_width10.mass950.SigNum1437.mjj_Gauss_sig__smooth.root"
+#]
 #fitfiles = ["dijetgamma_HLT_g140_loose_ystar0p75_15ifbdata_inclusive.root"]
 #fitfiles = ["dijetgamma_HLT_g75_tight_3j50noL1_L1EM22VHI_ystar0p75_15ifbdata_inclusive.root"]
 #fitfiles = ["trijet_HLT_j380_ystar0p75_15ifbdata_inclusive.root"]
+
+extraTags = ["_unblinding"]
+
 #extraTags = ["_toys_inputSig650"]
-extraTags = [
+#extraTags = [
 #"_toys_noSig",
 #"_toys_inputSig650",
 #"_toys_verySmallSig650",
@@ -86,77 +104,94 @@ extraTags = [
 #"_toys_mass750.SigNum2852",
 #"_toys_mass850.SigNum2386",
 #"_toys_mass950.SigNum1921",
-"_toys_mass1000.SigNum1415",
-"_toys_mass1100.SigNum1178",
-"_toys_mass200.SigNum11654",
-"_toys_mass200.SigNum2913",
-"_toys_mass200.SigNum5827",
-"_toys_mass200.SigNum8740",
-"_toys_mass250.SigNum10722",
-"_toys_mass250.SigNum2680",
-"_toys_mass250.SigNum5361",
-"_toys_mass250.SigNum8041",
-"_toys_mass300.SigNum2458",
-"_toys_mass300.SigNum4917",
-"_toys_mass300.SigNum7376",
-"_toys_mass300.SigNum9835",
-"_toys_mass350.SigNum2259",
-"_toys_mass350.SigNum4509",
-"_toys_mass350.SigNum4519",
-"_toys_mass350.SigNum6779",
-"_toys_mass350.SigNum9039",
-"_toys_mass400.SigNum3976",
-"_toys_mass450.SigNum3509",
-"_toys_mass550.SigNum2827",
-"_toys_mass650.SigNum2490",
-"_toys_mass750.SigNum2095",
-"_toys_mass850.SigNum1754",
-"_toys_mass950.SigNum1437",
-]
+#"_toys_mass400.SigNum7393",
+#"_toys_mass400.SigNum8872",
+#"_toys_mass450.SigNum6408",
+#"_toys_mass450.SigNum7690",
+#"_toys_mass600.SigNum4611",
+#"_toys_mass600.SigNum5533",
+#"_toys_mass650.SigNum4307",
+#"_toys_mass650.SigNum5169",
+#"_toys_mass1000.SigNum1415",
+#"_toys_mass1100.SigNum1178",
+#"_toys_mass200.SigNum11654",
+#"_toys_mass200.SigNum2913",
+#"_toys_mass200.SigNum5827",
+#"_toys_mass200.SigNum8740",
+#"_toys_mass250.SigNum10722",
+#"_toys_mass250.SigNum2680",
+#"_toys_mass250.SigNum5361",
+#"_toys_mass250.SigNum8041",
+#"_toys_mass300.SigNum2458",
+#"_toys_mass300.SigNum4917",
+#"_toys_mass300.SigNum7376",
+#"_toys_mass300.SigNum9835",
+#"_toys_mass350.SigNum2259",
+#"_toys_mass350.SigNum4509",
+#"_toys_mass350.SigNum4519",
+#"_toys_mass350.SigNum6779",
+#"_toys_mass350.SigNum9039",
+#"_toys_mass400.SigNum3976",
+#"_toys_mass450.SigNum3509",
+#"_toys_mass550.SigNum2827",
+#"_toys_mass650.SigNum2490",
+#"_toys_mass750.SigNum2095",
+#"_toys_mass850.SigNum1754",
+#"_toys_mass950.SigNum1437",
+#]
 #extraTags = ["_15ifbData"]
 
 # Tell me about these files
 lumi = "full" # or "15fb"
-channel = "dijetgamma_single_trigger"
-#channel = "dijetgamma_compound_trigger"
+#channel = "dijetgamma_single_trigger"
+channel = "dijetgamma_compound_trigger"
 #channel = "trijet"
-ntag = "inclusive"
+#ntag = "inclusive"
+ntag = "nbtag2"
+
+inHistNames = ["background_mjj_var"]
 #inHistName = "basicData"
 #inHistName = "background_mjj_var"
 #inHistName = "mjj_Gauss_sig_350_smoothinjectedToBkg"
 #inHistName = "mjj_Gauss_sig_1100_smoothinjectedToBkg"
 #inHistNames = ["mjj_Gauss_sig_750_smoothinjectedToBkg"]
-inHistNames = [
-"mjj_Gauss_sig_1000_smoothinjectedToBkg",
-"mjj_Gauss_sig_1100_smoothinjectedToBkg",
-"mjj_Gauss_sig_200_smoothinjectedToBkg",
-"mjj_Gauss_sig_200_smoothinjectedToBkg",
-"mjj_Gauss_sig_200_smoothinjectedToBkg",
-"mjj_Gauss_sig_200_smoothinjectedToBkg",
-"mjj_Gauss_sig_250_smoothinjectedToBkg",
-"mjj_Gauss_sig_250_smoothinjectedToBkg",
-"mjj_Gauss_sig_250_smoothinjectedToBkg",
-"mjj_Gauss_sig_250_smoothinjectedToBkg",
-"mjj_Gauss_sig_300_smoothinjectedToBkg",
-"mjj_Gauss_sig_300_smoothinjectedToBkg",
-"mjj_Gauss_sig_300_smoothinjectedToBkg",
-"mjj_Gauss_sig_300_smoothinjectedToBkg",
-"mjj_Gauss_sig_350_smoothinjectedToBkg",
-"mjj_Gauss_sig_350_smoothinjectedToBkg",
-"mjj_Gauss_sig_350_smoothinjectedToBkg",
-"mjj_Gauss_sig_350_smoothinjectedToBkg",
-"mjj_Gauss_sig_350_smoothinjectedToBkg",
-"mjj_Gauss_sig_400_smoothinjectedToBkg",
-"mjj_Gauss_sig_450_smoothinjectedToBkg",
-"mjj_Gauss_sig_550_smoothinjectedToBkg",
-"mjj_Gauss_sig_650_smoothinjectedToBkg",
-"mjj_Gauss_sig_750_smoothinjectedToBkg",
-"mjj_Gauss_sig_850_smoothinjectedToBkg",
-"mjj_Gauss_sig_950_smoothinjectedToBkg",
-]
+#inHistNames = [
+#"mjj_Gauss_sig_1000_smoothinjectedToBkg",
+#"mjj_Gauss_sig_1100_smoothinjectedToBkg",
+#"mjj_Gauss_sig_200_smoothinjectedToBkg",
+#"mjj_Gauss_sig_200_smoothinjectedToBkg",
+#"mjj_Gauss_sig_200_smoothinjectedToBkg",
+#"mjj_Gauss_sig_200_smoothinjectedToBkg",
+#"mjj_Gauss_sig_250_smoothinjectedToBkg",
+#"mjj_Gauss_sig_250_smoothinjectedToBkg",
+#"mjj_Gauss_sig_250_smoothinjectedToBkg",
+#"mjj_Gauss_sig_250_smoothinjectedToBkg",
+#"mjj_Gauss_sig_300_smoothinjectedToBkg",
+#"mjj_Gauss_sig_300_smoothinjectedToBkg",
+#"mjj_Gauss_sig_300_smoothinjectedToBkg",
+#"mjj_Gauss_sig_300_smoothinjectedToBkg",
+#"mjj_Gauss_sig_350_smoothinjectedToBkg",
+#"mjj_Gauss_sig_350_smoothinjectedToBkg",
+#"mjj_Gauss_sig_350_smoothinjectedToBkg",
+#"mjj_Gauss_sig_350_smoothinjectedToBkg",
+#"mjj_Gauss_sig_350_smoothinjectedToBkg",
+#"mjj_Gauss_sig_400_smoothinjectedToBkg",
+#"mjj_Gauss_sig_400_smoothinjectedToBkg",
+#"mjj_Gauss_sig_450_smoothinjectedToBkg",
+#"mjj_Gauss_sig_450_smoothinjectedToBkg",
+#"mjj_Gauss_sig_550_smoothinjectedToBkg",
+#"mjj_Gauss_sig_600_smoothinjectedToBkg",
+#"mjj_Gauss_sig_600_smoothinjectedToBkg",
+#"mjj_Gauss_sig_650_smoothinjectedToBkg",
+#"mjj_Gauss_sig_650_smoothinjectedToBkg",
+#"mjj_Gauss_sig_750_smoothinjectedToBkg",
+#"mjj_Gauss_sig_850_smoothinjectedToBkg",
+#"mjj_Gauss_sig_950_smoothinjectedToBkg",
+#]
 
 # Other info
-outputDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/BayesianFramework/results/flowchart_outputs/"
+#outputDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/BayesianFramework/results/flowchart_outputs/"
+outputDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/BayesianFramework/results/search_unblinded_data/"
 #doChannels = ["dijetgamma_compound_trigger","dijetgamma_single_trigger"]# "trijet"
 doFunctions = ["threepar","fourpar","fivepar","UA2"]
 

@@ -17,8 +17,8 @@ inputDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/inputs
 fitfiles = [
 #"dijetgamma_single_trigger_ystar0p75_unblinding_inclusive.root",
 #"dijetgamma_single_trigger_ystar0p75_unblinding_nbtag2.root",
-#"dijetgamma_compound_trigger_ystar0p75_unblinding_inclusive.root",
-"dijetgamma_compound_trigger_ystar0p75_unblinding_nbtag2.root"
+"dijetgamma_compound_trigger_ystar0p75_unblinding_inclusive.root",
+#"dijetgamma_compound_trigger_ystar0p75_unblinding_nbtag2.root"
 ]
 #fitfiles = ["searchphase.photon_single_inclusiveCATDOGCHECKSat.Gauss_width7.650.gev.SigEvent2600.mjj._ww12.650JUSTABOVE.root"]
 #fitfiles = [
@@ -81,7 +81,7 @@ fitfiles = [
 #fitfiles = ["dijetgamma_HLT_g75_tight_3j50noL1_L1EM22VHI_ystar0p75_15ifbdata_inclusive.root"]
 #fitfiles = ["trijet_HLT_j380_ystar0p75_15ifbdata_inclusive.root"]
 
-extraTags = ["_unblinding"]
+extraTags = ["_unblinding_3binUp"]
 
 #extraTags = ["_toys_inputSig650"]
 #extraTags = [
@@ -146,8 +146,8 @@ lumi = "full" # or "15fb"
 #channel = "dijetgamma_single_trigger"
 channel = "dijetgamma_compound_trigger"
 #channel = "trijet"
-#ntag = "inclusive"
-ntag = "nbtag2"
+ntag = "inclusive"
+#ntag = "nbtag2"
 
 inHistNames = ["background_mjj_var"]
 #inHistName = "basicData"
@@ -199,7 +199,7 @@ doFunctions = ["threepar","fourpar","fivepar","UA2"]
 batchmanager = PBSHandler()
 
 minXDict = {"dijetgamma_single_trigger" : 168,
-            "dijetgamma_compound_trigger" : 300,
+            "dijetgamma_compound_trigger" : 336, # was 300
             "trijet" : 300
            }
 

@@ -14,7 +14,7 @@ import analysisScripts.generalfunctions
 matchPatterns = [
 "SearchPhase_dijetgamma_single_trigger_inclusive_*unblinding",
 "SearchPhase_dijetgamma_single_trigger_nbtag2_*unblinding",
-"SearchPhase_dijetgamma_compound_trigger_inclusive_*unblinding",
+"SearchPhase_dijetgamma_compound_trigger_inclusive_*unblinding_2binUp",
 "SearchPhase_dijetgamma_compound_trigger_nbtag2_*unblinding"
 ]
 
@@ -147,9 +147,11 @@ plotExtensions = [
 #"_single_trigger_inclusive_mass950.SigNum1437"
 #]
 
+binExtensions = ["","_1binUp","_2binUp"]
+
 # Location of files
 #rootFileDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/BayesianFramework/results/flowchart_outputs/"
-rootFileDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/BayesianFramework/results/search_unblinded_data"
+rootFileDir = "/cluster/warehouse/kpachal/DijetISR/Resolved2017/LimitSetting/BayesianFramework/results/search_unblinded_data/"
 
 #plotDir = "flowchart_plots/"
 plotDir = "unblinded_data_plots/"
@@ -158,10 +160,11 @@ plotDir = "unblinded_data_plots/"
 allowedFunctions = ["threepar","fourpar","fivepar","UA2"]
 
 # Point of narrowest possible window
-smallestWHW = 14
+smallestWHW = 15
 
 # Make plots of result
 doPlots = True
+doDetailedPlots = True
 
 # Make a painter
 myPainter = Morisot()
@@ -244,6 +247,10 @@ def main() :
       if not function in optionsDict[swiftWindow].keys() :
         optionsDict[swiftWindow][function] = {}
       optionsDict[swiftWindow][function][permitWindow] = theseData
+      if doDetailedPlots :
+        windowPhrase = "permitWindow" if permitWindow else "noPermitWindow"
+        plotTag = "_{0}_whw{1}_{2}".format(function,swiftWindow,windowPhrase)
+        theseData.makeSearchPhasePlots(myPainter,theseData.fitLow,theseData.fitHigh,0,plotDir+"/detailedPlots/",plotTag+plotExtensions[index])
 
     # Put these here instead of inside the loop
     # if you want to allow cross-window-width solutions
